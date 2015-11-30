@@ -1,91 +1,80 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * WHOSE READY FOR A SOUL CRUSHING AMOUNT OF COMMENTING?!?!
  */
 package renard_7_tbagame;
 import java.util.*;
-import java.math.*;
-import java.io.File;
-import java.io.IOException;
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.DataLine;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.SourceDataLine;
 /**
  * @author Bob Renard
  * @author dotJPEG
  */
 public class Renard_7_TBAGame {
-static int TimesPlayed;
-static String name;
-static Scanner string = new Scanner(System.in);
+static int TimesPlayed; //If you have already played the game, you wont have to input a name and read the intro again.
+static String name; //used for player name and a reponse fairly late in the game
+static Scanner string = new Scanner(System.in); //The Scanner used by the entire program, pretty important.
 //static Scanner action = new Scanner(System.in);
-static String command;
-static String command2;
-static String command3;
-static boolean general;
-static boolean room1;
-static boolean key1;
+static String command;  //\
+static String command2; //>These three strings are used along side the scanner that the system uses in read user input
+static String command3; ///
+static boolean general; //used at the start of the game for the loop that the game runs with
+static boolean room1; // are you in room 1?
+static boolean key1; //do you have key 1?
 static boolean room2;
 static boolean key2;
-static boolean sword;
-static boolean field;
-static boolean town;
-static boolean inn;
-static boolean quest1;
-static boolean quest1c;
+static boolean sword; //do you have the sword?
+static boolean field; //are you in the feild or the areas it leads to?
+static boolean town; //are you in the town?
+static boolean inn; //are you in the inn?
+static boolean quest1; //Do you have quest1?
+static boolean quest1c; //is it done?
 static boolean quest2;
 static boolean quest3;
-static boolean blacksmith;
-static boolean buy;
-static boolean sell;
-static boolean morgue;
+static boolean blacksmith; //are you in the blacksmith
+static boolean buy; //ignore
+static boolean sell;//these
+static boolean morgue; //are you in the morgue
 static boolean mroom1;
-static boolean mroom2;
+static boolean mroom2; //which room are you in for the morgue?
 static boolean mroom3;
-static boolean well;
-static boolean play;
-static boolean castle;
+static boolean well; //are you at the well?
+static boolean play; //do you wish to play?
+static boolean castle; //are you at the castle?
 static boolean gate;
 static boolean tower;
-static boolean alter;
-static boolean aroom1;
-static boolean aroom1c;
-static boolean aroom2;
-static boolean aroom2c;
-static boolean aroom3;
-static boolean aroom3c;
-static boolean broom;
-static boolean person;
-static boolean orelse;
+static boolean alter;   //\
+static boolean aroom1;  //|
+static boolean aroom1c; //|
+static boolean aroom2;  //>Alter puzzle
+static boolean aroom2c; //|
+static boolean aroom3;  //|
+static boolean aroom3c; ///
+static boolean broom; //boss room
+static boolean person;//are you talking to the person in the room
+static boolean orelse;//are you about to get rekd by the person?
     public static void main(String[] args) {  
         general = true;
-        TimesPlayed = 0;
+        TimesPlayed = 0;  //the beggining of the code, runs the game and sets times played to 0
         while(general){
          System.out.println("Would you like to play?");
          command = string.nextLine();
-            if(command.contains("Y") || command.contains("y")){
+            if(command.contains("Y") || command.contains("y")){ //checks if you want to play the game
                 if(TimesPlayed == 0){
                  INTRO();
                  ROOM1();
-                 ROOM2();
+                 ROOM2(); //if you havent played before
                  FIELD();
                  CASTLE();
                  BOSS();
                 }else{
                  ROOM1();
                  ROOM2();
-                 FIELD();
+                 FIELD(); //if youve already played
                  CASTLE();
                  BOSS();
                //PART1THEADVENTURECOMMENCESCHAPTER1KITCHEN();
                 }
             }else if(command.contains("N") || command.contains("n")){
              System.out.println("Okay, Bye!");
-             general = false;
+             general = false;  //if you dont want to play the game because you are a filthy casual
             }else{
              System.out.println("this isnt working");
             }
@@ -97,13 +86,13 @@ static boolean orelse;
         System.out.println("This means that that word is a command for the currect situation");
         System.out.println("To begin playing the game, please enter your name");
          name = string.nextLine();
-        System.out.println("Hello " + name + ", Welcome to the world of Gomeria.");
+        System.out.println("Hello " + name + ", Welcome to the world of Gomeria.");                         //this is the intro to the game
         System.out.println("You wake up in a small and dark room that smells of rotting flesh.");
         System.out.println("You look around your dimly lit surroundings to see that in the room is a PILE of dead bodies wearing clothes that are ");
         System.out.println("similar to those that you have on, next to the pile you see a table with a KEY and a note attached to the key, and accross");
         System.out.println("the room you see a large metal DOOR.");
     }
-    static void ROOM1(){
+    static void ROOM1(){// this is the first room, the game is sort of tutorialized here
         room1 = true;
         while(room1){
          System.out.println("What do you decide to do?");
@@ -117,7 +106,7 @@ static boolean orelse;
                  System.out.println("You already have the key");
                 }
             }else
-            if(command.equalsIgnoreCase("door")){
+            if(command.equalsIgnoreCase("door")){//simple puzzles to teach the user the concept
                 if(key1){
                  System.out.println("You unlock the door with the key and proceed to the next room, press enter to continue");
                  room1 = false;
@@ -132,13 +121,13 @@ static boolean orelse;
             }
         }
     }
-    static void ROOM2(){
+    static void ROOM2(){//the second room is much like the first, but with a few more steps, further tutorializes the game
         room2 = true;          
         System.out.println("You leave the room you awoke in to find another room of similar theme.");
         System.out.println("Across the room you see a MONSTER holding a key, on a table you see a rusty SWORD, and to your right there is a locked DOOR");
         while(room2){ 
          command2 = string.nextLine();
-            if(command2.equalsIgnoreCase("monster")){
+            if(command2.equalsIgnoreCase("monster")){//the friendly monster, he means no harm
                 if(sword){
                  System.out.println("You take a swing at the monster");
                  System.out.println("It shutters in pain when you hit it, and then turns to face you.");
@@ -169,23 +158,23 @@ static boolean orelse;
             }
         }
     }
-    static void FIELD(){
+    static void FIELD(){//This is where most of the game takes place. It is the hub for the game most of the time. From here you can access the rest of the nonlinear game
         field = true;     
         while(field){
          command3 = string.nextLine();
         System.out.println("You can travel to the WELL, the TOWN, or the CASTLE.");
-            if(command3.equalsIgnoreCase("town")){
+            if(command3.equalsIgnoreCase("town")){ //The code for the town is contained here
             town = true;
             while(town){
              command3 = string.nextLine();
              System.out.println("You approach the town to find a wonderfull bustling medievil town, around the town you see a BLACKSMITH, an INN,");
              System.out.println("and a MORGUE. On the other hand you could return to the feild if you would like.");
-                if(command3.equalsIgnoreCase("INN")){
+                if(command3.equalsIgnoreCase("INN")){ //in here you can receive quests from a storyteller
                  System.out.println("You walk into the inn to find a cheerful display of poeple enjoying themselves, nothing out of the ordinary");
                  System.out.println("exept for the story teller across the room. You walk up to him and decide to ask him about either QUEST1,");
                  System.out.println("QUEST2, QUEST3, or LORE");
                  command3 = string.nextLine();
-                    if(command3.equalsIgnoreCase("QUEST1")){
+                    if(command3.equalsIgnoreCase("QUEST1")){//simple dungeon quest
                         if(quest1c){
                             System.out.println("Ayy maybe you're not the pleb I thought you were. Thanks for that.");   
                         }else{
@@ -197,14 +186,14 @@ static boolean orelse;
                          town = false;
                         }
                     }
-                    if(command3.equalsIgnoreCase("QUEST2")){
+                    if(command3.equalsIgnoreCase("QUEST2")){//just felt like throwing in the guessing game code
                      System.out.println("You walk up to the man telling stories while he is taking a break from his tales and ask him about");
                      System.out.println("quest two, the man proceeds to tell you of a well outside of town that is told to be magical.");
                      System.out.println("He then says you should give it a try sometime. You exit the inn and head back to the feild for the day.");
                      quest2 = true;
                      town = false;
                     }
-                    if(command3.equalsIgnoreCase("QUEST3")){
+                    if(command3.equalsIgnoreCase("QUEST3")){//the quest to beat the game
                      System.out.println("You walk up to the man telling stories while he is taking a break from his tales and ask him about");
                      System.out.println("quest three, the man proceeds to tell you of the large keep you saw when you left the strange rooms you");
                      System.out.println("started in. He says that a great evil lives there and needs to be rid of, but no one dares to try.");
@@ -223,12 +212,11 @@ static boolean orelse;
         //        if(command3.equalsIgnoreCase("BLACKSMITH")){
         //         town = false;   
         //        }
-                if(command3.equalsIgnoreCase("MORGUE")){
+                if(command3.equalsIgnoreCase("MORGUE")){//this is where your morality is tested
                     if(quest1){
                      System.out.println("You walk up to the locked morgue door and use the key that the storyteller gave you and unlock the door, you");
                      System.out.println("walk inside the newly unlocked morgue to find that the so-called 'infestation' was actually just a few rats");
-                     RAT();
-                     //System.out.println("You stomp a few rats and feel accomplished in your actions, though you also feel remorse for killing rats for no good reason.");
+                     RAT();//it calls upon the method for fighting                   
                      quest1c=true;
                     }else{
                      System.out.println("You walk up to the morgue, the only thing out of the ordinary that you see is a locked door. You get bored");
@@ -243,22 +231,22 @@ static boolean orelse;
                  //town = false;   
                 }//}
             }
-            if(command3.equalsIgnoreCase("well")){
-                if(quest3){
+            if(command3.equalsIgnoreCase("well")){//shameless advertising for the guessing game?
+                if(quest2){
                  System.out.println("You approach the well to find that like the loreteller said, it seems pretty ordinary, will you try");
                  System.out.println("throwing a coin in?");
                     if(command3.equalsIgnoreCase("yes")){
                         System.out.println("you walk up to the well when suddenly you are taken aback where all you can imagine is a simple");
-                        System.out.println("Java based guessing game made by a very handsome sophmore");
+                        System.out.println("Java based guessing game made by a very handsome sophmore");//for the reference this game is realistic fantasy
                         GuessGameClass.gamecode();
                     }else{
                         System.out.println("You walk back to the feild, good for you not gambling and all");
                     }
-                }else if(!quest3){
+                }else if(!quest2){//gotta make sure you have the quest to arouse suspicion of the well in the first place
                  System.out.println("Just seems like an ordinary well, better head back to the FEILD");
                 }                            
             }
-            if(command3.equalsIgnoreCase("castle")){
+            if(command3.equalsIgnoreCase("castle")){//this is where you go to beat the game
                 if(quest3){
                  System.out.println("Are you sure you want enter? There will be no turning back.");
                     command3 = string.nextLine();
@@ -272,7 +260,7 @@ static boolean orelse;
             }
     }
     }
-    static void RAT(){
+    static void RAT(){//the method for the fighting
      boolean RatLife = true;
      int RatHealth = 20;
      int PlayerHealth = 50;
@@ -300,16 +288,16 @@ static boolean orelse;
              System.out.println("The rat runs around and slowly burs away, going through a great deal of pain and suffering, I hope you're proud of yourself.");
              RatLife = false;
             }
-        }
+        }//as you can tell i dont like fighting in games, if a game doesnt need it, its not gonna actually get it.
          System.out.println("With the infestation being cleared, you feel satisfied with the quest, and haed back to the feild for the night.");
     }
-    static void CASTLE(){
+    static void CASTLE(){//if you have the quest for beating the game, than you will be able to continue
      castle = true;
      System.out.println("You see another door in the castle feild, around you there is nothing else, you walk through the door.");
      System.out.println("Through the door you are greeted by a long hallway, at the end of the hallway there is a room with an alter in the");
      System.out.println("center of it, around it there are three doors, each with a strange marking. ");
      
-        while(castle){
+        while(castle){//while loop for the alter puzzle
          System.out.println("You can investigate the ALTER, go through DOOR1, go through DOOR2, and go through DOOR3.");
          command3 = string.nextLine();
             if(command3.equalsIgnoreCase("alter")){
@@ -321,7 +309,7 @@ static boolean orelse;
                     System.out.println("The alter has three spots on it, each one coresponds with a spot on each of the doors.");
                 }
             }
-            if(command3.equalsIgnoreCase("door1")){
+            if(command3.equalsIgnoreCase("door1")){   // puzzle time, not really though
                 if(!aroom1c){
                  System.out.println("You walk through the leftmost door, In the center of the room there is an awkwardly placed metalic but veiny pedistal");
                  System.out.println("with a glowing mist around in. On the pedistal there is a cell like object in the shape of a cylinder with a strange");
@@ -358,7 +346,7 @@ static boolean orelse;
             }
         }
     }
-    static void BOSS(){
+    static void BOSS(){//kind of a boss but not really, its just more dialog and text prompts because im creative
      broom = true;
      System.out.println("You travel further and further down the seamingly endless staricase until you finaly reach the bottom to find a strange door.");
      System.out.println("The door has a strange and futeristic style about it, you can make out a handful of strange outcroppings from it, one of these however");
@@ -374,7 +362,7 @@ static boolean orelse;
              System.out.println("You approach the person and reach out to touch them, when your hand collides with your shoulder the person gets startled and grabs you.");
              System.out.println("'Who are you?!'");
              System.out.println("For a moment you say nothing, until the person gets frustrated and asks again");
-                while(person){
+                while(person){//the final engagement with the person in the room
                  command3 = string.nextLine();
                  System.out.println("I'll ask again, who are you?!");
                  System.out.println("How do you respond?");
@@ -395,12 +383,14 @@ static boolean orelse;
                      System.out.println("A group of men in strange black outfits storm the room and capture you, you feel a smash on your head and fall uncontious.");
                      System.out.println("You wake up in a small and dark room that smells of rotting flesh.");
                      TimesPlayed++;
+                     System.out.println("You win because it is required by the rubric");
                      break;
                     }
                     if(command3.contains("hero")){
                      System.out.println("'I doubt it, SECURITY!'");
                      System.out.println("A group of men in strange black outfits storm the room and capture you, you feel a smash on your head and fall uncontious.");
                      System.out.println("You wake up in a small and dark room that smells of rotting flesh.");
+                     System.out.println("you lose because it is required by the rubric");
                      TimesPlayed++;
                      break;
                     }
@@ -427,5 +417,4 @@ static boolean orelse;
                 System.out.println("Why are you so violent? First the friendly monster, then the rats, and now this? You really need to calm down.");
             }
         }
-    }
-}
+/*420 lines exactly, im blessed by the memes*/}}//thats all folks
