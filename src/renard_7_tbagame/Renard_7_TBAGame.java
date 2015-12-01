@@ -374,6 +374,7 @@ static boolean orelse;//are you about to get rekd by the person?
                      System.out.println("'SECURITY' The person screams.");
                      System.out.println("A group of men in strange black outfits storm the room and capture you, you feel a smash on your head and fall uncontious.");
                      System.out.println("You wake up in a small and dark room that smells of rotting flesh.");
+                     System.out.println("you win, but do you feel accomplished?");
                      TimesPlayed++;
                      break;
                     }
@@ -383,14 +384,14 @@ static boolean orelse;//are you about to get rekd by the person?
                      System.out.println("A group of men in strange black outfits storm the room and capture you, you feel a smash on your head and fall uncontious.");
                      System.out.println("You wake up in a small and dark room that smells of rotting flesh.");
                      TimesPlayed++;
-                     System.out.println("You win because it is required by the rubric");
+                     System.out.println("you win, but do you feel accomplished?");
                      break;
                     }
                     if(command3.contains("hero")){
                      System.out.println("'I doubt it, SECURITY!'");
                      System.out.println("A group of men in strange black outfits storm the room and capture you, you feel a smash on your head and fall uncontious.");
                      System.out.println("You wake up in a small and dark room that smells of rotting flesh.");
-                     System.out.println("you lose because it is required by the rubric");
+                     System.out.println("you win, but do you feel accomplished?");
                      TimesPlayed++;
                      break;
                     }
@@ -403,6 +404,7 @@ static boolean orelse;//are you about to get rekd by the person?
                          System.out.println("'SECURITY' The person screams.");
                          System.out.println("A group of men in strange black outfits storm the room and capture you, you feel a smash on your head and fall uncontious.");
                          System.out.println("You wake up in a small and dark room that smells of rotting flesh.");
+                         System.out.println("you win, but do you feel accomplished?");
                          TimesPlayed++;
                          break;
                         }
